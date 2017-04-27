@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D3F45B11E93D1C900933BAD /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F45B01E93D1C900933BAD /* MSButtonNode.swift */; };
 		7D838ED91E9283F000E46686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D838ED81E9283F000E46686 /* AppDelegate.swift */; };
 		7D838EDB1E9283F000E46686 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7D838EDA1E9283F000E46686 /* GameScene.sks */; };
 		7D838EDD1E9283F000E46686 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7D838EDC1E9283F000E46686 /* Actions.sks */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D3F45B01E93D1C900933BAD /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		7D838ED51E9283F000E46686 /* Leanderthol 3: Resurrection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Leanderthol 3: Resurrection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D838ED81E9283F000E46686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D838EDA1E9283F000E46686 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				7D838ED81E9283F000E46686 /* AppDelegate.swift */,
 				7D838EDA1E9283F000E46686 /* GameScene.sks */,
+				7D3F45B01E93D1C900933BAD /* MSButtonNode.swift */,
 				7D838EDC1E9283F000E46686 /* Actions.sks */,
 				7D838EDE1E9283F000E46686 /* GameScene.swift */,
 				7D838EE01E9283F000E46686 /* GameViewController.swift */,
@@ -213,6 +216,7 @@
 				7D838EDF1E9283F000E46686 /* GameScene.swift in Sources */,
 				7D838EE11E9283F000E46686 /* GameViewController.swift in Sources */,
 				7D838ED91E9283F000E46686 /* AppDelegate.swift in Sources */,
+				7D3F45B11E93D1C900933BAD /* MSButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +420,7 @@
 				7D838EFA1E9283F100E46686 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D838EFB1E9283F100E46686 /* Build configuration list for PBXNativeTarget "Leanderthol 3: ResurrectionTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +429,7 @@
 				7D838EFD1E9283F100E46686 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,8 +1,7 @@
 //
 //  GameScene.swift
-//  Leanderthol 3: Resurrection
+//  The Magnificent You
 //
-//  Created by Kevin T Porrecca on 4/3/17.
 //  Copyright © 2017 The Gummy Bear Fireworks Company. All rights reserved.
 //
 
@@ -14,29 +13,113 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var story: SKLabelNode!
+    var story2: SKLabelNode!
+    var story3: SKLabelNode!
+    var story4: SKLabelNode!
+    
+    var leftText: SKLabelNode!
+    var rightText: SKLabelNode!
+    
+    var leftButton: MSButtonNode!
+    var rightButton: MSButtonNode!
+    
+    var text: String = "THE MAGNIFICENT YOU"
+    var text2: String = ""
+    var text3: String = "This is YOUR story."
+    var text4: String = ""
+    
+    var left: String = "LET'S GO"
+    var right: String = "LET'S GO"
+    
+    var encounter: Int = 0
+    
     override func didMove(to view: SKView) {
+        story = self.childNode(withName: "//Story") as! SKLabelNode
+        story2 = self.childNode(withName: "//Story2") as! SKLabelNode
+        story3 = self.childNode(withName: "//Story3") as! SKLabelNode
+        story4 = self.childNode(withName: "//Story4") as! SKLabelNode
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+        leftText = self.childNode(withName: "//leftText") as! SKLabelNode
+        rightText = self.childNode(withName: "//rightText") as! SKLabelNode
+        
+        leftButton = self.childNode(withName: "//leftButton") as! MSButtonNode
+        rightButton = self.childNode(withName: "//rightButton") as! MSButtonNode
+        
+        leftButton.selectedHandler = { [unowned self] in
+            self.encounterOption1()
         }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
+        rightButton.selectedHandler = { [unowned self] in
+            self.encounterOption2()
         }
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        story.text = text
+        story2.text = text
+        story3.text = text
+        story4.text = text
+        leftText.text = left
+        rightText.text = right
+        
+    }
+
+
+    func encounterOption1() {
+        switch encounter {
+        case 0:
+            self.text = "You wake up."
+            self.text2 = "You're in a cave."
+            self.text3 = ""
+            self.text4 = ""
+            self.left = "Leave the cave."
+            self.right = "Go back to sleep."
+            self.encounter = 1
+        case 1:
+            self.text = ""
+            self.text2 = ""
+            self.text3 = ""
+            self.text4 = ""
+            self.left = ""
+            self.right = ""
+            self.encounter = 2
+        case 2:
+            self.text = ""
+            self.text2 = ""
+            self.text3 = ""
+            self.text4 = ""
+            self.left = ""
+            self.right = ""
+            self.encounter = 3
+        case 3:
+            self.text = ""
+            self.text2 = ""
+            self.text3 = ""
+            self.text4 = ""
+            self.left = ""
+            self.right = ""
+            self.encounter = 4
+            
+        default:
+            break
+        }
+    }
+    
+    func encounterOption2(){
+        switch encounter {
+        case 1:
+            self.text = ""
+            self.text2 = ""
+            self.text3 = ""
+            self.text4 = ""
+            self.left = ""
+            self.right = ""
+            self.encounter = 100
+        default:
+            break
+    }
+    
+        }
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -62,28 +145,4 @@ class GameScene: SKScene {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
-}
